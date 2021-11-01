@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/signup.dart';
@@ -15,29 +16,26 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      //backgroundColor: Colors.lightGreen,
-      // appBar: AppBar(
-      //   elevation: 0.0,
-      //   backgroundColor: const Color(0xFF356713),
-      //   title: const Text('Welcome To Organic Life'),
-      //   leading: const Icon(Icons.email),
-      //   actions: const [
-      //     Icon(Icons.search),
-      //     SizedBox(width: 5,),
-      //     Icon(Icons.favorite_border),
-      //     SizedBox(width: 10,),
-      //   ],
-      // ),
+
 
       body: Center(
         child: Column(
           children:  [
             const SizedBox(height: 150,),
-            const Text('Change Your Lifestyle',style: TextStyle(
-              color: Color(0xFF356713),
-              fontSize: 30,
-              fontWeight: FontWeight.bold
-            ),),
+            DefaultTextStyle(
+              style: const TextStyle(
+                  fontSize: 30,
+                  color: Color(0xFF356713),
+                  fontFamily: 'MateSC'
+              ),
+              child: AnimatedTextKit(
+                animatedTexts: [
+                  FlickerAnimatedText('Stay healthy'),
+                  WavyAnimatedText('Change your life style'),
+                  //WavyAnimatedText('Stay healthy'),
+
+
+                ],),),
             const SizedBox(height: 20,),
             // Container(
             //   margin: const EdgeInsets.only(left: 120),
@@ -45,7 +43,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             //   width: 300,
             //   child: Image.asset('assets/images/organic.png'),
             // ),
-            Image.asset('assets/images/new.png',height:300,width:300,),
+            Hero(
+              
+                tag: 'logo',
+                child: Image.asset('assets/images/new.png',height:300,width:300,)),
             const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

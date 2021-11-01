@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'home.dart';
 import 'login.dart';
 
 class SignupPage extends StatefulWidget {
@@ -18,7 +19,9 @@ class _SignupPageState extends State<SignupPage> {
         child: Column(
           children:   [
             const SizedBox(height: 30,),
-            Image.asset('assets/images/new.png',height:150,width:150,),
+            Hero(
+                tag: 'logo',
+                child: Image.asset('assets/images/new.png',height:150,width:150,)),
             // const Text('Register Your Self!',style: TextStyle(
             //     color: Colors.blueGrey,
             //     fontSize: 30,
@@ -144,7 +147,9 @@ class _SignupPageState extends State<SignupPage> {
               ),
             ),
             const SizedBox(width: 10,),
-            ElevatedButton(onPressed: (){},
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder:(context) => const HomePage()));
+            },
               child: const Text('Submit',
                 style: TextStyle(fontSize: 20 ),),
               style: ElevatedButton.styleFrom(

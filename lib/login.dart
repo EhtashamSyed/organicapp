@@ -20,7 +20,9 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children:   [
             const SizedBox(height: 50,),
-            Image.asset('assets/images/new.png',height:200,width:200,),
+            Hero(
+                tag: 'logo',
+                child: Image.asset('assets/images/new.png',height:200,width:200,)),
             // const Text('Welcome Back!',style: TextStyle(
             //     color: Colors.white,
             //     fontSize: 30,
